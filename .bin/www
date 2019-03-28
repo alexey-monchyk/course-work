@@ -1,0 +1,18 @@
+const { createServer } = require('http');
+const app = require('../server.js');
+
+const server = createServer(app);
+const PORT = process.env.PORT || 3001;
+
+process
+    .on("unhandledRejection", (reason, p) => {
+        console.log(reason.toString(), 'Unhandled Rejection at Promise', p);
+    })
+    .on("uncaughtException", (err) => {
+        console.log(err.message, 'Uncaught Exception thrown');
+        process.exit(1);
+    });
+
+server.listen(PORT, () => {
+    console.log(`Server started on ${PORT}`);
+});

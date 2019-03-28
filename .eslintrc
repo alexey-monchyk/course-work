@@ -1,0 +1,16 @@
+{
+  "extends": "airbnb-base",
+  "rules": {
+    "indent": [
+      2,
+      4
+    ],
+    "no-unneeded-ternary": "off",
+    "no-underscore-dangle": "off",
+    "import/no-dynamic-require": "off",
+    "global-require": "off",
+    "no-return-await": 0,
+    "func-names": 0,
+    "implicit-arrow-linebreak": 0
+  }
+}
