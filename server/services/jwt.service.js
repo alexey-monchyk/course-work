@@ -27,6 +27,10 @@ class JWTService {
         });
     }
 
+    static verifyEmailToken(token) {
+        return verify(token, process.env.MAIL_SECRET);
+    }
+
     static verify(token) {
         return verify(token, process.env.ACCESS_SECRET);
     }

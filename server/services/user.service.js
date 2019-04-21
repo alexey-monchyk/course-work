@@ -96,11 +96,11 @@ class UserService {
     static async loginUser(email, password) {
         let user = await User.findOne({ email });
 
+        if (!user) throw new Error('User with this email not found.');
+
         if (!user.emailVerified) throw new Error('Confirm your email.');
 
         user = user.toClient();
-
-        if (!user) throw new Error('User with this email not found.');
 
         const isPasswordValid = await UserService.validatePassword(password, user.password);
 
@@ -114,7 +114,7 @@ class UserService {
     }
 
     static async confirmEmail(token) {
-        const verified = JWTService.verify(token);
+        const verified = JWTService.verifyEmailToken(token.toString());
 
         const user = await User.findByIdAndUpdate(verified.id, {
             emailVerified: true,
@@ -123,14 +123,6 @@ class UserService {
         if (!user) throw new Error('User not updated.');
 
         return user.toClient();
-    }
-
-    static async isUserUnique(email) {
-        const trimmedEmail = email ? email.trim() : '';
-
-        const user = await User.findOne({ email: trimmedEmail });
-
-        if (user) throw new Error('User with this email already exists.');
     }
 
     static async validateUser(user) {

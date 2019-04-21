@@ -84,7 +84,7 @@ module.exports = {
 
     '/articles': {
         POST: (req) => {
-            req.check('authorization', 'Access token is required').notEmpty();
+            // req.check('authorization', 'Access token is required').notEmpty();
             req.check('title', 'Title is required.').notEmpty();
 
             return req.validationErrors();

@@ -1,15 +1,4 @@
-import React, { Component } from 'react';
-import SignUpFormContainer from '../containers/SignUpFormContainer.js';
+import React from 'react';
+import SignUpContainer from '../containers/SignUpContainer';
 
-class SignUp extends Component {
-  render() {
-    return (
-      <div>
-        <SignUpFormContainer />
-      </div>
-    );
-  }
-}
-
-
-export default SignUp;
+export default () => <SignUpContainer />

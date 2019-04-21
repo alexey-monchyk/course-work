@@ -36,6 +36,9 @@ const UserSchema = new mongoose.Schema({
         type: Boolean,
         default: false,
     },
+    favouritesArticles: {
+        type: Array,
+    },
 });
 
 UserSchema.methods.hashPassword = async function () {

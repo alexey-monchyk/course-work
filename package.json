@@ -21,7 +21,6 @@
     "nodemon": "^1.18.10"
   },
   "devDependencies": {
-    "@types/node": "^11.11.4",
     "eslint": "^5.15.3",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.16.0"

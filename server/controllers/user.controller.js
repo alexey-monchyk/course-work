@@ -8,7 +8,6 @@ const {
     selfDelete,
     confirmEmail,
     refreshToken,
-    validateUser,
 } = require('../services/user.service');
 
 exports.postUserLogin = async (req, res) =>
@@ -29,5 +28,3 @@ exports.getConfirmEmail = async (req, res) => res.json(await confirmEmail(req.pa
 exports.deleteSelfUser = async (req, res) => res.json(await selfDelete(req.decodedId));
 
 exports.postRefreshToken = async (req, res) => res.josn(await refreshToken(req.body.refreshToken));
-
-exports.postValidateUser = async (req, res) => res.json(await validateUser(req.body));
